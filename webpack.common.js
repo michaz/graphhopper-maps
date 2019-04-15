@@ -14,7 +14,13 @@ module.exports = {
   devtool: "source-map",
   devServer: {
     publicPath: "/",
-    contentBase: distPath
+    contentBase: distPath,
+    proxy: {
+      "/route": {
+        target: "http://localhost:3000",
+        pathRewrite: { "^/route": "" }
+      }
+    }
   },
   resolve: {
     // Leaflet image Alias resolutions
@@ -72,8 +78,13 @@ module.exports = {
       //This loads the png files the leaflet css points to
       {
         test: /\.png/,
+        //include: path.resolve(__dirname, "node_modules/leaflet/"),
         loader: "file-loader"
-      }
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
+    }
     ]
   },
   plugins: [
@@ -81,6 +92,10 @@ module.exports = {
       {
         from: srcPath + "/index.html",
         to: "index.html"
+      },
+      {
+        from: path.resolve(srcPath, "favicon.png"),
+        to: "favicon.png"
       }
     ])
   ]
