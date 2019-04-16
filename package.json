@@ -1,7 +1,7 @@
 {
   "name": "graphhopper-maps",
   "description": "provides routing via graphhopper<",
-  "license": "UNLICENSED",
+  "license": "apache-2.0",
   "version": "0.0.1",
   "scripts": {
     "develop": "webpack-dev-server --config webpack.common.js --progress --colors --port 3000 --hot",
