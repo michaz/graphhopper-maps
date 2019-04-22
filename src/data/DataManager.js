@@ -1,7 +1,7 @@
 import Http from "./Http.js";
 import Dispatcher from "./Dispatcher.js";
 
-const endpoint = "http://graphhopper-trimet.eu-central-1.elasticbeanstalk.com";
+const endpoint = "http://localhost:5000";
 
 class DataManager {
   constructor() {
