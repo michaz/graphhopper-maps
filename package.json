@@ -5,8 +5,11 @@
   "version": "0.0.1",
   "scripts": {
     "develop": "webpack-dev-server --config webpack.common.js --progress --colors --port 3000 --hot",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "transpile": "babel src -d dist",
+    "prepublishOnly": "npm run build"
   },
+  "main": "dist/bundle.js",
   "dependencies": {
     "leaflet": "^1.2.0",
     "moment": "^2.18.1",
@@ -18,16 +21,16 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
-    "babel-polyfill": "^6.26.0",
+    "build-jar": "^1.0.2",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.7",
+    "file-loader": "^0.11.2",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.18.2",
+    "svg-inline-loader": "^0.8.0",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.8.2",
-    "webpack-merge": "^4.1.0",
-    "file-loader": "^0.11.2",
-    "style-loader": "^0.18.2",
-    "css-loader": "^0.28.7",
-    "raw-loader": "^0.5.1",
-    "svg-inline-loader": "^0.8.0",
-    "copy-webpack-plugin": "^4.0.1"
+    "webpack-merge": "^4.1.0"
   },
   "false": {}
 }

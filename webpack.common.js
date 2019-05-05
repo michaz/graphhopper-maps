@@ -3,7 +3,7 @@ const webpack = require("webpack");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const srcPath = path.resolve(__dirname, "src");
-const distPath = path.resolve(__dirname, "dist");
+const distPath = path.resolve(__dirname, "dist/pt-maps");
 
 module.exports = {
   entry: srcPath + "/main.js",
@@ -79,7 +79,7 @@ module.exports = {
       {
         test: /\.png/,
         //include: path.resolve(__dirname, "node_modules/leaflet/"),
-        loader: "file-loader"
+        loader: "file-loader?name=./[name].[ext]"
       },
       {
         test: /\.svg$/,
